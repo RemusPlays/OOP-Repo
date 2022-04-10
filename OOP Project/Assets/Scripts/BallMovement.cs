@@ -6,53 +6,25 @@ public class BallMovement : MonoBehaviour
 
 {
 
-    private float xPosition;
-    private float zPosition;
 
-    private float yLowPosition = 2;
-    private float yMediumPosition = 4;
-    private float yHighPosition = 6;
-
-    public PhysicMaterial bounciness;
+    public Collider bouncy;
     
-    // Start is called before the first frame update
     void Start()
     {
-        
+        bouncy = GetComponent<SphereCollider>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("1"))
-        {
-            LowButton();
-        }
 
-        if (Input.GetKeyDown("2"))
-        {
-            MediumButton();
-        }
-
-        if (Input.GetKeyDown("3"))
-        {
-            HighButton();
-        }
     }
 
-    void HighButton()
+    public virtual void StandardBouncy()
     {
-        transform.Translate(xPosition, yHighPosition, zPosition);
+        bouncy.material.bounciness = 1f;
     }
 
-    void MediumButton()
-    {
-        transform.Translate(xPosition, yMediumPosition, zPosition);
-    }
 
-    void LowButton()
-    {
-        transform.Translate(xPosition, yLowPosition, zPosition);
-    }
+
 
 }

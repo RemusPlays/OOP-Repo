@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BowlingBall : BallMovement
 {
-    // Start is called before the first frame update
-    void Start()
+
+
+
+
+
+    public override void StandardBouncy()
     {
-        
+        //base.StandardBouncy();
+        bouncy.material.bounciness = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
