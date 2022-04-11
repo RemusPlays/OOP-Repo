@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private BallMovement basketBallMovement;
     private BallMovement tennisBallMovement;
 
-
+ 
 
 
 
@@ -27,14 +27,8 @@ public class GameManager : MonoBehaviour
         bowlingBallPosition = new Vector3(-4, 7.7f, -3);
         basketBallPosition = new Vector3(1.5f, 7.7f, -3);
         tennisBallPosition = new Vector3(6.6f, 7.7f, -3);
-
-        
-
-
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown("1"))
@@ -60,9 +54,12 @@ public class GameManager : MonoBehaviour
 
     void BallSpawn()
     {
-        Instantiate(ballPrefabs[0], bowlingBallPosition, Quaternion.identity);
-        Instantiate(ballPrefabs[1], basketBallPosition, Quaternion.identity);
-        Instantiate(ballPrefabs[2], tennisBallPosition, Quaternion.identity);
+        if (GameObject.Find("Bowling Ball(Clone)") == null && GameObject.Find("Basket Ball(Clone)") == null && GameObject.Find("Tennis Ball(Clone)") == null)
+        {
+            Instantiate(ballPrefabs[0], bowlingBallPosition, Quaternion.identity);
+            Instantiate(ballPrefabs[1], basketBallPosition, Quaternion.identity);
+            Instantiate(ballPrefabs[2], tennisBallPosition, Quaternion.identity);
+        }
 
 
     }
@@ -76,15 +73,13 @@ public class GameManager : MonoBehaviour
 
 
     
-
+    //ABSTRACTION. This Function deploys multiple functions, which are to clearly 1) enable gravity and 2)Add bounce to the objects. 
     void BallDrop()
     {
         
         bowlingBallMovement = GameObject.Find("Bowling Ball(Clone)").GetComponent<BallMovement>();
         bowlingBallMovement.EnableGravity();
-        bowlingBallMovement.StandardBouncy();
-
-
+        bowlingBallMovement.StandardBouncy();               
 
         basketBallMovement = GameObject.Find("Basket Ball(Clone)").GetComponent<BallMovement>();
         basketBallMovement.EnableGravity();

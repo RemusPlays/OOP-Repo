@@ -125,3 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0608b913528e3048ad3e82e66ab33fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bouncy: {fileID: 0}
+  ballRb: {fileID: 0}
+  gravityRing: {fileID: 1184126355039967057, guid: 7bf97184494232e4fb76a4c8338aedb2, type: 3}
