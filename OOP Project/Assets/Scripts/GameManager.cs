@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour
     public GameObject basketBall;
     public GameObject tennisBall;
 
-    //private BallMovement ballMovement;
+    private BallMovement bowlingBallMovement;
+    private BallMovement basketBallMovement;
+    private BallMovement tennisBallMovement;
 
 
 
@@ -26,8 +28,8 @@ public class GameManager : MonoBehaviour
         basketBallPosition = new Vector3(1.5f, 7.7f, -3);
         tennisBallPosition = new Vector3(6.6f, 7.7f, -3);
 
+        
 
-        //ballMovement = GameObject.Find("Bowling Ball").GetComponent<BallMovement>();
 
 
     }
@@ -37,14 +39,32 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown("1"))
         {
-            BallDrop();
-            //ballMovement.StandardBouncy();
+            BallSpawn();
+            Debug.Log("1, BallSpawn has been pressed");
+            
         }
 
         if (Input.GetKeyDown("2"))
         {
             RemoveAllBalls();
+            Debug.Log("2, RemoveAllBalls has been pressed");
         }
+
+
+        if (Input.GetKeyDown("3"))
+        {
+            BallDrop();
+            Debug.Log("3, BallDrop has been pressed");
+        }
+    }
+
+    void BallSpawn()
+    {
+        Instantiate(ballPrefabs[0], bowlingBallPosition, Quaternion.identity);
+        Instantiate(ballPrefabs[1], basketBallPosition, Quaternion.identity);
+        Instantiate(ballPrefabs[2], tennisBallPosition, Quaternion.identity);
+
+
     }
 
     void RemoveAllBalls()
@@ -55,14 +75,24 @@ public class GameManager : MonoBehaviour
     }
 
 
+    
+
     void BallDrop()
     {
         
+        bowlingBallMovement = GameObject.Find("Bowling Ball(Clone)").GetComponent<BallMovement>();
+        bowlingBallMovement.EnableGravity();
+        bowlingBallMovement.StandardBouncy();
 
-        Instantiate(ballPrefabs[0], bowlingBallPosition, Quaternion.identity);
-        Instantiate(ballPrefabs[1], basketBallPosition, Quaternion.identity);
-        Instantiate(ballPrefabs[2], tennisBallPosition, Quaternion.identity);
 
+
+        basketBallMovement = GameObject.Find("Basket Ball(Clone)").GetComponent<BallMovement>();
+        basketBallMovement.EnableGravity();
+        basketBallMovement.StandardBouncy();
+
+        tennisBallMovement = GameObject.Find("Tennis Ball(Clone)").GetComponent<BallMovement>();
+        tennisBallMovement.EnableGravity();
+        tennisBallMovement.StandardBouncy();
 
     }
 }

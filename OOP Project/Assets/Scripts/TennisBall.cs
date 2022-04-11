@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BowlingBall : BallMovement
+public class TennisBall : BowlingBall
 {
-
     public override void StandardBouncy()
     {
 
-        bouncy.material.bounciness = .1f;
-        
+        bouncy.material.bounciness = 1f;
+
     }
-
-
 }

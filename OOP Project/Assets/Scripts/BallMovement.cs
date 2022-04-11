@@ -8,10 +8,14 @@ public class BallMovement : MonoBehaviour
 
 
     public Collider bouncy;
+    public Rigidbody ballRb;
     
     void Start()
     {
         bouncy = GetComponent<SphereCollider>();
+        ballRb = GetComponent<Rigidbody>();
+
+ 
     }
 
     void Update()
@@ -19,9 +23,16 @@ public class BallMovement : MonoBehaviour
 
     }
 
+    public void EnableGravity()
+    {
+        ballRb.useGravity = true;
+    }
+
+
     public virtual void StandardBouncy()
     {
-        bouncy.material.bounciness = 1f;
+        bouncy.material.bounciness = 1;
+        
     }
 
 
