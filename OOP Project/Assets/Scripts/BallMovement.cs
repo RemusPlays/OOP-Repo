@@ -21,6 +21,12 @@ public class BallMovement : MonoBehaviour
         
     }
     
+    public void DisableGravity()
+    {
+        ballRb.useGravity = false;
+    }
+
+
     public virtual void StandardBouncy()
     {
         bouncy.material.bounciness = 1;

@@ -6,14 +6,14 @@ using UnityEngine;
 //INHERITANCE. Basket ball uses the EnableGravity from the BallMovement script in order to fall down.
 public class BasketBall : BallMovement
 {
-
+    private float basketBallBounciness = .9f;
 
     //POLYMORPHISM. Bounciness from parent class (Ball Movement) is overriden.
     //The BASKET BALL has a different level of bounciness.
     public override void StandardBouncy()
     {
 
-        bouncy.material.bounciness = .9f;
+        bouncy.material.bounciness = basketBallBounciness;
 
     }
 }

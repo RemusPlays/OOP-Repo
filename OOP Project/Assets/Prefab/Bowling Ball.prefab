@@ -127,4 +127,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bouncy: {fileID: 0}
   ballRb: {fileID: 0}
-  gravityRing: {fileID: 1184126355039967057, guid: 7bf97184494232e4fb76a4c8338aedb2, type: 3}
